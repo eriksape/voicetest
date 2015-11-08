@@ -8,6 +8,30 @@
   <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
 <body>
-
+  <form action="#">
+    <label>dosis:</label><input type="text" id="dosis">
+    <label>peso:</label><input type="text" id="peso">
+    <label>Mg Totales: <span id ="mgTotales"></span></label>
+    <label>mL:</label><input type="text" id="ml">
+    <label>Mg del Farmaco:</label><input type="text" id="mgFarmaco">
+    <label>Ml del farmaco:<span id="mlTotales"></span></label>
+    <button id="resultado">resultado</button>
+  </form>
 </body>
+<script type="text/javascript">
+  require(['zepto'], function($){
+    $('#resultado').on('click', function(){
+      var mgTotales = $('#peso').val()*$('#dosis').val();
+      //console.log(mgTotales);
+      $('#mgTotales').text(mgTotales);
+      var mlTotales = (mgTotales*$('#ml').val())/($('#mgFarmaco').val());
+
+      $('#mlTotales').text(mlTotales);
+
+      var texto = 'miligramos totales es igual a '+ mgTotales.toString() + 'mililitros totales es igual a '+ mlTotales.toString()
+
+      responsiveVoice.speak(texto, 'Spanish Latin American Female');
+    });
+  })
+</script>
 </html>
