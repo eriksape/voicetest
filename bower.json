@@ -1,0 +1,9 @@
+{
+  "name": "blue-leaf",
+  "description": "Physics-like animations for pretty particles",
+  "dependencies": {
+    "requirejs": "~2.1.20",
+    "text": "requirejs-text#~2.0.14",
+    "zepto": "~1.1.6"
+  }
+}
