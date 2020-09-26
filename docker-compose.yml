@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  sails:
+    image: node:14.9-alpine
+    volumes:
+      - ./:/var/www/backend
+    working_dir: /var/www/backend
+    command: /bin/sh -c "npm install && npm run start"
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:1337
